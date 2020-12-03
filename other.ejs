@@ -13,9 +13,13 @@
     </header>
     <div role="main">
         <p><%=content %></p>
-        <p>これは、EJSをつかったWebページです。</p>
-        <img src="images/anonymous.png" alt="profile" title="profile"></img>
-    </div>>
+        <% var id = 0; %>
+        <% for(var key in data) { %>
+        <%- include('data_item',
+            {id:++id, key:key, val:[data[key]]}) %>
+        <% } %>
+        <img src="images/whoami.png" alt="profile" title="profile"></img>
+    </div>
 </body>
 
 </html>
