@@ -13,18 +13,10 @@
     </header>
     <div role="main">
         <p><%=content %></p>
-        <form method="post" action="/other">
-            <input type="text" name="msg" class="form-control">
-            <input type="submit" value="Click" class="btn btn-primary">
-        </form>
-        <table class="table">
-            <% for(var key in data) {%>
-                <tr>
-                    <th><%= key %></th>
-                    <th><%= data[key] %></th>
-                </tr>
+            <% var id = 0; %>
+            <% for(var key in data) { %>
+            <%- include('data_item',{id:++id, key:key, val:[data[key]]}) %>
             <% } %>
-        </table>
         <p><a href="/other">Other Pageに移動 &gt;&gt;</a></p>
         <img src="images/anonymous.png" alt="profile" title="profile"></img>
     </div>>
